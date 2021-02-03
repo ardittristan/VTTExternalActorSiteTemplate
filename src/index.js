@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         /**
          * dynamic url for getting background from server
-         * 
+         *
          * can add more of these for more dynamically loaded content
          */
         document.body.style.setProperty("--denim", `url('${baseUrl}ui/denim.png')`);
@@ -106,14 +106,14 @@ $(document.body).find("form#siteUrlForm").on("submit", function (e) {
 
 /**
  * gets json data from url, uses cors-anywhere proxy to get around cors not being setup on foundry
- * 
+ *
  * @param  {String} url
  */
 function getJSON(url) {
     return new Promise((resolve, reject) => {
         $.ajax({
             dataType: "json",
-            url: 'https://cors-anywhere.herokuapp.com/' + url,
+            url: 'https://cors-anywhere.ardittristan.workers.dev/corsproxy/?apiurl=' + url,
             success: data => resolve(data),
             error: () => reject()
         });
@@ -122,7 +122,7 @@ function getJSON(url) {
 
 /**
  * shows submitted text in the middle of screen
- * 
+ *
  * @param  {String} textContent
  */
 function notFoundError(textContent) {
